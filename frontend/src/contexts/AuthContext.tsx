@@ -1,18 +1,23 @@
 "use client";
 
-import LoginContainer from "@/containers/Login";
-import { useUserSessionQuery } from "@/hooks/useUserSession";
+import { createContext, useCallback, useEffect } from "react";
+import {
+  AuthContextProps,
+  AuthContextProviderProps,
+} from "./AuthContext.types";
 import { CircularProgress } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect } from "react";
+import { useUserSessionQuery } from "@/hooks/useUserSession";
 
-const Login = () => {
+export const AuthContext = createContext<AuthContextProps>(
+  {} as AuthContextProps
+);
+
+export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const { replace } = useRouter();
   const { data: userSession, isLoading } = useUserSessionQuery();
 
   const handleCheckIfUserCanLogin = useCallback(async () => {
-    if (isLoading) return;
-
     const session = userSession;
 
     if (!session) {
@@ -24,7 +29,7 @@ const Login = () => {
     if (!!parsedSession) {
       replace("/dashboards");
     }
-  }, [isLoading, replace, userSession]);
+  }, [replace, userSession]);
 
   useEffect(() => {
     handleCheckIfUserCanLogin();
@@ -58,7 +63,9 @@ const Login = () => {
     );
   }
 
-  return <LoginContainer />;
+  return (
+    <AuthContext.Provider value={{ userSession }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
-
-export default Login;
