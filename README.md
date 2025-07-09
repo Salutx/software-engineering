@@ -2,20 +2,14 @@
 
 Este projeto simula o desenvolvimento de um mini sistema de autenticação, com foco no aprendizado de conceitos básicos de backend. Ele utiliza Node.js, Express, MySQL e bcrypt para registrar e autenticar usuários de forma simples. A estrutura segue boas práticas de organização de código, segurança de senhas e controle de versões com GitHub.
 
----
-
 # 🟪 Objetivo
 
 > Criar um sistema simples de autenticação de usuários, permitindo o registro seguro de contas e login com validação de credenciais, utilizando Node.js, Express, MySQL e bcrypt para garantir segurança e organização no backend.
-
----
 
 
 # 🟪 Conceito do Projeto
 
 Este repositório utiliza um **monorepo** para hospedar tanto o frontend quanto o backend da aplicação. A proposta é integrar o desenvolvimento das duas camadas de forma sincronizada, facilitando a gestão do projeto e o controle de qualidade.
-
----
 
 # 🟪 Tecnologias utilizadas e Justificativa
 🔙 **BACKEND**
