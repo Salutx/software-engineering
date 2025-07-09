@@ -1,9 +1,22 @@
-import { Router } from 'express';
-import { register, login } from '../controllers/AuthController';
+import { Router } from "express";
+import { register, login } from "../controllers/AuthController";
 
+/**
+ * * Main router for authentication routes.
+ */
 const router = Router();
 
-router.post('/register', register);
-router.post('/login', login);
+/**
+ * * Registers a new user.
+ * * @route POST /register
+ * * @returns {Object} Success message and user details.
+ *
+ * * Logs in an existing user.
+ * * @route POST /login
+ * * @returns {Object} Success message and user details.
+ * * @throws {Error} If email or password is missing or incorrect.
+ */
+router.post("/register", register);
+router.post("/login", login);
 
 export default router;
