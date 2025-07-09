@@ -45,6 +45,7 @@ export const register = async (req: Request, res: Response) => {
   return res.status(201).json({
     message: "Usuário criado!",
     user: {
+      id: user.id,
       email: user.email,
       username: user.username,
       createdAt: user.createdAt,
@@ -75,5 +76,10 @@ export const login = async (req: Request, res: Response) => {
   if (!valid) return res.status(401).json({ message: "Senha inválida" });
 
   // If everything is valid, return a success message
-  return res.status(200).json({ message: "Login bem-sucedido" });
+  return res.status(200).json({ 
+    id: user.id,
+    email: user.email,
+    username: user.username,
+    createdAt: user.createdAt,
+   });
 };

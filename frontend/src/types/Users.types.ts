@@ -1,5 +1,5 @@
 export interface User {
-  userId: number;
+  id: number;
   username: string;
   email: string;
   password: string;
@@ -7,20 +7,19 @@ export interface User {
 }
 
 export interface UserRegisterPayload {
-  name: string;
   email: string;
   password: string;
   username: string;
 }
 
 export interface UserLoginPayload {
-  username: string;
+  email: string;
   password: string;
 }
 
 export interface UserSession {
-  userId: number;
-  name: string;
+  id: number;
   username: string;
   email: string;
+  createdAt: string;
 }

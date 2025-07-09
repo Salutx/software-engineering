@@ -1,14 +1,14 @@
 import { UserLoginPayload, UserSession } from "@/types/Users.types";
-import ServiceAPI from "../ServiceAPI";
+import ServiceAPI from "../../ServiceAPI";
 
 export default async function loginUser({
   password,
-  username,
+  email,
 }: UserLoginPayload): Promise<UserSession> {
   try {
     const response = await ServiceAPI.post<UserSession>(`/users/login`, {
       password,
-      username,
+      email,
     });
     if (response.status !== 200) {
       throw new Error("Failed to login user");

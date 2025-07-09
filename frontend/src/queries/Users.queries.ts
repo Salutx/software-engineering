@@ -1,5 +1,5 @@
-import createUser from "@/api/Users/createUser";
-import loginUser from "@/api/Users/loginUser";
+import createUser from "@/api/services/Users/createUser";
+import loginUser from "@/api/services/Users/loginUser";
 import { useMutation } from "@tanstack/react-query";
 
 export const useCreateUser = () =>

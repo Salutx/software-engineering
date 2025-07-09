@@ -1,5 +1,5 @@
-import ServiceAPI from "../ServiceAPI";
-
+import { User, UserRegisterPayload } from "@/types/Users.types";
+import ServiceAPI from "../../ServiceAPI";
 
 export default async function createUser(
   payload: UserRegisterPayload
