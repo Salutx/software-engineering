@@ -16,7 +16,7 @@ const router = Router();
  * * @returns {Object} Success message and user details.
  * * @throws {Error} If email or password is missing or incorrect.
  */
-router.post("api/users/register", register);
-router.post("api/users/login", login);
+router.post("/api/users/register", register);
+router.post("/api/users/login", login);
 
 export default router;
