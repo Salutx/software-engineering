@@ -5,6 +5,8 @@ export interface IUser extends Model {
   id?: number;
   email: string;
   password: string;
+  createdAt?: Date;
+  username?: string;
 }
 
 const User = sequelize.define<IUser>('User', {
@@ -17,6 +19,15 @@ const User = sequelize.define<IUser>('User', {
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    unique: true
   }
 });
 
