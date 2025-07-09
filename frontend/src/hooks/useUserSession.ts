@@ -40,7 +40,7 @@ export const useSignOut = () => {
       localStorage.removeItem(localStorageSessionKey);
       localStorage.removeItem(localStorageFavoritesKey);
       queryClient.clear();
-      replace("/login");
+      replace("/");
     },
   });
 };

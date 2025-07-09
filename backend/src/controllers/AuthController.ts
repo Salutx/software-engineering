@@ -25,13 +25,13 @@ export const register = async (req: Request, res: Response) => {
   const existingEmail = await User.findOne({ where: { email } });
 
   if (existingEmail) {
-    return res.status(409).json({ message: "Email já cadastrado" });
+    return res.status(409).json({ message: "Email já cadastrado!" });
   }
 
   const existingUser = await User.findOne({ where: { username } });
 
   if (existingUser) {
-    return res.status(409).json({ message: "Usuário já existe" });
+    return res.status(409).json({ message: "Usuário já existe!" });
   }
 
   // Hash the password before saving it to the database
@@ -64,22 +64,24 @@ export const login = async (req: Request, res: Response) => {
 
   // Check if email and password are provided
   if (!email || !password) {
-    return res.status(400).json({ message: "Email e senha são obrigatórios" });
+    return res.status(400).json({ message: "Email e senha são obrigatórios!" });
   }
 
   // Check if user exists
   const user = await User.findOne({ where: { email } });
-  if (!user) return res.status(404).json({ message: "Usuário não encontrado" });
+  if (!user)
+    return res.status(404).json({ message: "Usuário não encontrado." });
 
   // Compare the provided password with the stored hashed password
   const valid = await bcrypt.compare(password, user.password);
-  if (!valid) return res.status(401).json({ message: "Senha inválida" });
+  if (!valid)
+    return res.status(401).json({ message: "As senhas não se coincidem!" });
 
   // If everything is valid, return a success message
-  return res.status(200).json({ 
+  return res.status(200).json({
     id: user.id,
     email: user.email,
     username: user.username,
     createdAt: user.createdAt,
-   });
+  });
 };

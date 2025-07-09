@@ -18,7 +18,7 @@ const ProtectedRoute = (WrappedComponent: WrappedComponentParam) => {
       if (isLoading) return;
 
       if (!userSession) {
-        router.push("/login");
+        router.push("/");
       }
     }, [userSession, router, isLoading]);
 

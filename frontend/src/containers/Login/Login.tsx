@@ -66,7 +66,7 @@ const Login = () => {
         onSuccess: (data) => {
           alert("Login efetuado com sucesso! :)");
           userSessionMutate(JSON.stringify(data));
-          router.replace("/catalogo");
+          router.replace("/dashboards");
         },
         onError: (error) => {
           alert("Ocorreu um erro ao fazer login. Tente novamente!");
@@ -78,7 +78,6 @@ const Login = () => {
         email: registerForm.email,
         password: registerForm.password,
         username: registerForm.username,
-        name: registerForm.username,
       };
 
       registerUserMutate(registerPayload, {
@@ -88,7 +87,7 @@ const Login = () => {
           setSelectedSection("login");
         },
         onError: (error) => {
-          alert("Ocorreu um erro ao se registrar. Tente novamente!");
+          alert(error.response?.data?.message ?? "Ocorreu um erro ao registrar o usuário. Tente novamente!");
           console.error("Register failed:", error);
         },
       });
@@ -138,7 +137,7 @@ const Login = () => {
                 type="text"
                 value={loginForm?.email || ""}
                 onChange={handleLoginChange}
-                name="username"
+                name="email"
                 placeholder="Digite seu e-mail"
                 required
                 onKeyDown={(e) => {

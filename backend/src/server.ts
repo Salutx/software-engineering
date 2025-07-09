@@ -12,10 +12,10 @@ dotenv.config();
  * Initializes the Express app, sets up middleware, and starts the server.
  */
 const app = express();
-app.use(express.json());
-app.use(routes);
 app.use(cors());
 app.use(morgan('dev'));
+app.use(express.json());
+app.use(routes);
 
 const PORT = process.env.PORT || 3000;
 

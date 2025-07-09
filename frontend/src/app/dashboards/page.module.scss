@@ -1,0 +1,15 @@
+.Container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.Text {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}

@@ -6,7 +6,7 @@ export default async function loginUser({
   email,
 }: UserLoginPayload): Promise<UserSession> {
   try {
-    const response = await ServiceAPI.post<UserSession>(`/users/login`, {
+    const response = await ServiceAPI.post<UserSession>(`/users/login/`, {
       password,
       email,
     });
