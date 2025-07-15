@@ -134,6 +134,7 @@ const Login = () => {
             <div className={Styles.FormContent__Inputs}>
               <UniversalInput
                 label="E-mail"
+                dataTestid="login-email"
                 type="text"
                 value={loginForm?.email || ""}
                 onChange={handleLoginChange}
@@ -149,6 +150,7 @@ const Login = () => {
               />
               <UniversalInput
                 label="Senha"
+                dataTestid="login-password"
                 type="password"
                 value={loginForm?.password || ""}
                 onChange={handleLoginChange}
@@ -234,6 +236,7 @@ const Login = () => {
             onClick={handleConfirm}
             className={Styles.FormButton}
             disabled={!formIsValid() || isLoading}
+            data-testid="login-submit-button"
           >
             {isLoading && (
               <div

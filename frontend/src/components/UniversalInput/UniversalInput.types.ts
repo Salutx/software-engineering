@@ -8,4 +8,5 @@ export interface UniversalInputProps {
   required?: boolean;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   sx?: React.CSSProperties;
+  dataTestid?: string;
 }

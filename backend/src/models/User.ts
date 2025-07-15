@@ -1,5 +1,8 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/database";
+import { testSequelize } from "../db/testDb";
+
+const db = process.env.NODE_ENV === 'test' ? testSequelize : sequelize;
 
 /**
  * Represents a user in the system.
@@ -18,7 +21,7 @@ export interface IUser extends Model {
  * This model represents the users table in the database.
  * It includes fields for `email`, `password`, `createdAt` timestamp, and an `username`.
  */
-const User = sequelize.define<IUser>("User", {
+const User = db.define<IUser>("User", {
   email: {
     type: DataTypes.STRING,
     allowNull: false,

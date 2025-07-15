@@ -14,6 +14,7 @@ const UniversalInput = ({
   required,
   onKeyDown,
   sx,
+  dataTestid,
 }: UniversalInputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -39,6 +40,7 @@ const UniversalInput = ({
           name={name}
           required={required}
           onKeyDown={onKeyDown}
+          data-testid={dataTestid}
         />
 
         {type === "password" && (
